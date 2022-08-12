@@ -2,7 +2,7 @@
 
 # Streaming Open Weather API Data and storing in Postgresql and HDFS 
 
-# Prerequisites
+## Prerequisites
 
 * Open Weather API 
 * Docker and Docker-compose
