@@ -1,17 +1,48 @@
-# Welcome to MkDocs
+## Streaming Open Weather API Data and storing in Postgresql and HDFS 
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+# Prerequisites
 
-## Commands
+* Open Weather API 
+* Docker and Docker-compose
+* Spark
+* Kafka
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+Spark and Kafka Installation
 
-## Project layout
+!!! Note
+```bash
+!pip install pyspark
+```
+```bash
+!pip install kafka-python
+```
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+Dependency Jar are downloaded from below links
+
+!!! Note
+https://mvnrepository.com/artifact/org.apache.spark/spark-sql-kafka-0-10_2.12/3.0.1
+https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients/2.6.0
+https://mvnrepository.com/artifact/org.apache.spark/spark-streaming-kafka-0-10-assembly_2.12/3.0.1
+https://mvnrepository.com/artifact/org.postgresql/postgresql/42.2.16
+https://mvnrepository.com/artifact/org.apache.commons/commons-pool2/2.8.1
+
+
+# Docker file to run zookeeper and kafka 
+```bash
+docker-compose up -d
+```
+
+# Run to publish the open weather data to kafka topic
+```bash
+python weather_live_data.py
+```
+
+# Run to subscribe the data and store it using pyspark in Postgresql and HDFS
+```bash
+python process_data_spark.py
+```
+
+
+
+
+

@@ -1,5 +1,5 @@
 # Project information
-site_name: mkdocs
+site_name: Kafka                        # change
 # defeine TOC or order of website-
 nav:
   - Home: index.md
@@ -8,8 +8,8 @@ site_author: Harshavardhan Achyuta
 site_description: >-
   DESCRIPTION
 # Repository
-repo_name: Harshavardhan1005/mkdocs
-repo_url: https://github.com/Harshavardhan1005/mkdocs
+repo_name: Harshavardhan1005/Kafka                        #change
+repo_url: https://github.com/Harshavardhan1005/Kafka      #change
 
 # Configuration
 theme:
