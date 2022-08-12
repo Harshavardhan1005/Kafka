@@ -11,13 +11,13 @@ Spark and Kafka Installation
 
 !!! Note
 ```bash
-!pip install pyspark
+pip install pyspark
 ```
 ```bash
-!pip install kafka-python
+pip install kafka-python
 ```
 
-Dependency Jar are downloaded from below links
+Dependency files can be downloaded from below links
 
 !!! Note
 
