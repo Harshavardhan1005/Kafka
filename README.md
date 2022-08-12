@@ -1,7 +1,5 @@
 [![ci](https://github.com/Harshavardhan1005/Kafka/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/Harshavardhan1005/Airflow_Docker/actions/workflows/ci.yaml)
 
-## Visit docs at [Kafka](https://harshavardhan1005.github.io/Kafka/)
-
 # Streaming Open Weather API Data and storing in Postgresql and HDFS 
 
 # Prerequisites
@@ -45,6 +43,8 @@ python weather_live_data.py
 ## Run to subscribe the data and store it using pyspark in Postgresql and HDFS
 ```bash
 python process_data_spark.py
+
+## Visit docs at [Kafka](https://harshavardhan1005.github.io/Kafka/)
 ```
 
 
