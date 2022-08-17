@@ -47,7 +47,7 @@ python process_data_spark.py
 ```
 
 # Grafana Dashboard
-![](img/Architecture.png)
+![](img/dashboard_output.gif)
 
 
 
