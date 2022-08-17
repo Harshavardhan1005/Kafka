@@ -13,7 +13,7 @@ def get_data(url):
     data = response_data.json()
     weather = {}
     event_datetime = datetime.now()
-    weather["event_datetime"] 		= event_datetime.strftime("%Y-%m-%d %H:%M:%S")
+    weather["event_datetime"] 		= event_datetime.strftime("%Y-%m-%d %H:%M")
     weather["humidity"] 			= data["main"]["humidity"]
     weather["pressure"] 			= data["main"]["pressure"]
     weather["temperature"] 			= data["main"]["temp"]
@@ -21,9 +21,6 @@ def get_data(url):
     weather["temperature_min"] 		= data["main"]["temp_min"]
     weather["temperature_feels"] 	= data["main"]["feels_like"]
     weather["city_name"] 			= data["name"]
-    weather["country_name"] 		= data["sys"]["country"]
-    weather["time_zone"] 			= data["timezone"]
-    weather["visibility"] 			= data["visibility"]
     weather["wind_deg"] 			= data["wind"]["deg"]
     weather["wind_speed"] 			= data["wind"]["speed"]
 
@@ -43,7 +40,7 @@ if __name__ == "__main__":
         try:
 
             for city in city_names:
-                api_key = "< Open Weather API KEY >"
+                api_key = "API KEY"
                 url = "https://api.openweathermap.org/data/2.5/weather?q={0}&appid={1}".format(city,api_key)
                 weather_data = get_data(url)
                 i = i + 1

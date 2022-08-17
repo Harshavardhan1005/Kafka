@@ -77,19 +77,16 @@ if __name__ == "__main__":
     weather_detail_df.printSchema()
 
     weather_detail_schema = StructType([
-      StructField("event_datetime", StringType()),
-      StructField("humidity", StringType()),
-      StructField("pressure", StringType()),
-      StructField("temperature", StringType()),
-      StructField("temperature_max", StringType()),
-      StructField("temperature_min", StringType()),
-      StructField("temperature_feels", StringType()),
+      StructField("event_datetime", TimestampType()),
+      StructField("humidity", LongType()),
+      StructField("pressure", LongType()),
+      StructField("temperature", FloatType()),
+      StructField("temperature_max", FloatType()),
+      StructField("temperature_min", FloatType()),
+      StructField("temperature_feels", FloatType()),
       StructField("city_name", StringType()),
-      StructField("country_name", StringType()),
-      StructField("time_zone", StringType()),
-      StructField("visibility", StringType()),
-      StructField("wind_deg", StringType()),
-      StructField("wind_speed", StringType()),
+      StructField("wind_deg", LongType()),
+      StructField("wind_speed", FloatType()),
     ])
 
     weather_detail_df_1 = weather_detail_df.selectExpr("CAST(value AS STRING)")
@@ -100,7 +97,7 @@ if __name__ == "__main__":
 
     print("Printing Schema of weather_detail_df_1: ")
     weather_detail_df_3.printSchema()
-    
+    """
     hdfs_weather_path = "hdfs://localhost:9000/weather_data/data"
     hdfs_weather_checkpoint_location_path = "hdfs://localhost:9000/weather_data/checkpoint"
 
@@ -110,32 +107,27 @@ if __name__ == "__main__":
                        .option("path", hdfs_weather_path) \
                        .option("checkpointLocation", hdfs_weather_checkpoint_location_path) \
                        .start()
-    
+    """
     weather_detail_agg_df = weather_detail_df_3\
                             .groupby("event_datetime",
-                                    "city_name",
-                                    "country_name",
-                                    "time_zone")\
+                                    "city_name")\
                             .agg(fn.avg('humidity').alias('humidity'),
                                  fn.avg('pressure').alias('pressure'),
                                  fn.avg('temperature').alias('temperature'),
                                  fn.avg('temperature_max').alias('temperature_max'),
                                  fn.avg('temperature_min').alias('temperature_min'),
                                  fn.avg('temperature_feels').alias('temperature_feels'),
-                                 fn.avg('visibility').alias('visibility'),
                                  fn.avg('wind_deg').alias('wind_deg'),
                                  fn.avg('wind_speed').alias('wind_speed'))
 
-  
-
-    postgresql_table_name = "event_message_detail_tbl"
     
+    postgresql_table_name = "event_message_detail_tbl1"
     weather_detail_agg_df .writeStream \
                           .trigger(processingTime='60 seconds') \
                           .outputMode("update") \
                           .foreachBatch(lambda current_df, epoc_id: save_to_postgresql_table(current_df, epoc_id, postgresql_table_name)) \
                           .start()
-    
+
     weather_detail_write_stream = weather_detail_agg_df .writeStream \
                                                         .trigger(processingTime='60 seconds') \
                                                         .outputMode("update") \
