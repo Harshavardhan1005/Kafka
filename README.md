@@ -1,13 +1,16 @@
 [![ci](https://github.com/Harshavardhan1005/Kafka/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/Harshavardhan1005/Airflow_Docker/actions/workflows/ci.yaml)
 
-# Streaming Open Weather API Data and storing in Postgresql and HDFS 
+# Real-Time-Data-Analysis
+This project builds data analysis pipeline for storing the real time streaming data using Bigdata technologies and to create a dashboard using Grafana for visualization.
 
-## Prerequisites
+# Prerequisites
 
-* Open Weather API 
-* Docker and Docker-compose
-* Spark
-* Kafka
+* [Sign up](https://home.openweathermap.org/) and get an Open Weather API Key
+* Depending on the os install [Docker](https://docs.docker.com/engine/install/)
+* For Visualization install [Grafana](https://grafana.com/docs/grafana/latest/setup-grafana/installation/)
+
+# Architecture
+![](img/Architecture.gif)
 
 Spark and Kafka Installation
 
@@ -45,7 +48,8 @@ python weather_live_data.py
 python process_data_spark.py
 ```
 
-## Visit docs at [Kafka](https://harshavardhan1005.github.io/Kafka/)
+# Grafana Dashboard
+![](img/dashboard_output.gif)
 
 
 
