@@ -2,10 +2,10 @@
 
 # Prerequisites
 
-* Open Weather API 
-* Docker and Docker-compose
-* Spark
-* Kafka
+* [Sign up](https://home.openweathermap.org/) and get an Open Weather API Key
+* Depending on the os install [Docker](https://docs.docker.com/engine/install/)
+* Install Spark
+* Instal Kafka
 
 Spark and Kafka Installation
 
