@@ -1,11 +1,13 @@
-# Streaming Open Weather API Data and storing in Postgresql and HDFS 
+# Real-Time-Data-Analysis
+This project builds data analysis pipeline for storing the real time streaming data using Bigdata technologies and to create a dashboard using Grafana for visualization.
 
 # Prerequisites
 
 * [Sign up](https://home.openweathermap.org/) and get an Open Weather API Key
 * Depending on the os install [Docker](https://docs.docker.com/engine/install/)
-* Install Spark
-* Instal Kafka
+* For Visualization install [Grafana](https://grafana.com/docs/grafana/latest/setup-grafana/installation/)
+
+# Architecture
 
 Spark and Kafka Installation
 
@@ -42,6 +44,10 @@ python weather_live_data.py
 ```bash
 python process_data_spark.py
 ```
+
+# Grafana Dashboard
+[](/home/harsha/Desktop/Project/Kafka/docs/img/Architecture.png)
+
 
 
 

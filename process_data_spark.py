@@ -97,7 +97,7 @@ if __name__ == "__main__":
 
     print("Printing Schema of weather_detail_df_1: ")
     weather_detail_df_3.printSchema()
-    """
+
     hdfs_weather_path = "hdfs://localhost:9000/weather_data/data"
     hdfs_weather_checkpoint_location_path = "hdfs://localhost:9000/weather_data/checkpoint"
 
@@ -107,7 +107,7 @@ if __name__ == "__main__":
                        .option("path", hdfs_weather_path) \
                        .option("checkpointLocation", hdfs_weather_checkpoint_location_path) \
                        .start()
-    """
+
     weather_detail_agg_df = weather_detail_df_3\
                             .groupby("event_datetime",
                                     "city_name")\
