@@ -8,6 +8,7 @@ This project builds data analysis pipeline for storing the real time streaming d
 * For Visualization install [Grafana](https://grafana.com/docs/grafana/latest/setup-grafana/installation/)
 
 # Architecture
+![](img/Architecture.png)
 
 Spark and Kafka Installation
 
@@ -46,7 +47,7 @@ python process_data_spark.py
 ```
 
 # Grafana Dashboard
-[](/home/harsha/Desktop/Project/Kafka/docs/img/Architecture.png)
+![](img/Architecture.png)
 
 
 
