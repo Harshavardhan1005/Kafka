@@ -1,0 +1,8 @@
+
+<<<<<<<<<< PostgreSQL Database Setup >>>>>>>>>>
+
+psql -U postgres
+CREATE USER harsha WITH PASSWORD 'harsha';
+ALTER USER harsha WITH SUPERUSER;
+CREATE DATABASE event_message_db;
+GRANT ALL PRIVILEGES ON DATABASE event_message_db TO harsha;
